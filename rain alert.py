@@ -2,7 +2,6 @@ import os
 import requests
 from twilio.rest import Client
 
-# API_KEY = "8452be5e1d06e33f15820d907ebe6a06"
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 MY_PHONE = os.environ['MY_PHONE']
@@ -19,15 +18,9 @@ parameters = {
 
 # request weather using "One call API"
 
-# raining right now:
-# lat: -22.701250
-# lon: -46.764290
-# my place:
-# lat: 55.539938
-# lon: 37.458260
 one_call_params = {
-    "lat": -22.701250,
-    "lon": -46.764290,
+    "lat": 55.539938,
+    "lon": 37.458260,
     "exclude": "current,minutely,daily",
     "appid": os.environ.get("API_KEY"),
     "units": "metric",
@@ -59,6 +52,3 @@ if will_be_rain:
             to=MY_PHONE,
             )
     print(message.status)
-
-# Find your Account SID and Auth Token at twilio.com/console
-# and set the environment variables. See http://twil.io/secure
