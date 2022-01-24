@@ -5,6 +5,8 @@ from twilio.rest import Client
 # API_KEY = "8452be5e1d06e33f15820d907ebe6a06"
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
+MY_PHONE = os.environ['MY_PHONE']
+VIRT_PHONE = os.environ['VIRT_PHONE']
 
 parameters = {
     "q": "Moscow",
@@ -52,10 +54,10 @@ if will_be_rain:
     client = Client(account_sid, auth_token)
     message = client.messages \
         .create(
-        body="It's going to rain today. Bring an ☂️!",
-        from_='+12243343186',
-        to='+79267289577'
-    )
+            body="It's going to rain today. Bring an ☂️!",
+            from_=VIRT_PHONE,
+            to=MY_PHONE,
+            )
     print(message.status)
 
 # Find your Account SID and Auth Token at twilio.com/console
